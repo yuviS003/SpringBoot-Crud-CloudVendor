@@ -1,7 +1,10 @@
 package com.crudapi.resttutorial.controller;
 
 import com.crudapi.resttutorial.model.CloudVendor;
+import com.crudapi.resttutorial.response.ResponseHandler;
 import com.crudapi.resttutorial.service.CloudVendorService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,8 +19,8 @@ public class CloudVendorAPIController {
     }
 
     @GetMapping("{vendorId}") // GET api to fetch cv by id
-    public CloudVendor getCloudVendorDetails(@PathVariable("vendorId") String vendorId){
-        return cloudVendorService.getCloudVendor(vendorId);
+    public ResponseEntity<Object> getCloudVendorDetails(@PathVariable("vendorId") String vendorId){
+        return ResponseHandler.responseBuilder("Requested vendor details are given here", HttpStatus.OK, cloudVendorService.getCloudVendor(vendorId));
     }
 
     @GetMapping() // GET api to fetch all cv
