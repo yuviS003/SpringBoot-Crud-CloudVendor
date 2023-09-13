@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/cloud_vendor?useSSL=false
+    username: root
+    password: yuvraj123456789
+
+# JPA Settings
+  jpa.hibernate.ddl_auto: update #update can be used also
