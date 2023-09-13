@@ -1,5 +1,6 @@
 package com.crudapi.resttutorial.service.impl;
 
+import com.crudapi.resttutorial.exception.CloudVendorNotFoundException;
 import com.crudapi.resttutorial.model.CloudVendor;
 import com.crudapi.resttutorial.repository.CloudVendorRepository;
 import com.crudapi.resttutorial.service.CloudVendorService;
@@ -35,6 +36,9 @@ public class CloudVendorServiceImpl implements CloudVendorService {
 
     @Override
     public CloudVendor getCloudVendor(String cloudVendorId) {
+        if(cloudVendorRepository.findById(cloudVendorId).isEmpty()){
+            throw new CloudVendorNotFoundException("Requested Cloud vendor does not exist");
+        }
         return cloudVendorRepository.findById(cloudVendorId).get();
     }
 
