@@ -5,4 +5,4 @@ spring:
     password: yuvraj123456789
 
 # JPA Settings
-  jpa.hibernate.ddl_auto: update #update can be used also
+jpa.hibernate.ddl_auto: update #update can be used also
